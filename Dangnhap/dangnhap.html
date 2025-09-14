@@ -1,0 +1,125 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dangnhap.css" />
+    <title>Đăng Nhập</title>
+  </head>
+  <body>
+    <a href="../Trangchu/trangchu.html" class="header-link">← Về trang chủ</a>
+
+    <div class="container">
+      <h2>Đăng nhập</h2>
+      <form id="loginForm">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" required />
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" required />
+
+        <button type="submit">Đăng nhập</button>
+      </form>
+
+      <div class="demo-account">
+        <strong>Tài khoản demo:</strong><br />
+        Tên đăng nhập: admin<br />
+        Mật khẩu: 123456
+      </div>
+
+      <div class="footer">
+        Chưa có tài khoản? <a href="register.html">Đăng ký</a>
+      </div>
+    </div> -->
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập | Cửa Hàng Thời Trang Nam Tây Âu</title>
+    <!-- Swiper CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"rel="stylesheet"/>
+    <link rel="stylesheet" href="dangnhap.css" />
+  </head>
+
+  <body>
+    
+    <a href="../Trangchu/trangchu.html" class="header-link">← Về trang chủ</a>
+
+    <!-- Slideshow -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            alt="Cửa hàng thời trang nam"
+            class="swiper-image"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            alt="Áo vest nam lịch lãm"
+            class="swiper-image"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="../img/aotaynam.png"
+            alt="Áo sơ mi nam cao cấp"
+            class="swiper-image"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            alt="Phong cách nam Tây Âu"
+            class="swiper-image"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            alt="Phụ kiện nam sang trọng"
+            class="swiper-image"
+          />
+        </div>
+      </div>
+      <!-- Swiper Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Swiper Navigation -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <div class="container">
+      <h2>Đăng Nhập</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Tên đăng nhập</label>
+          <input type="text" id="username" required />
+        </div>
+        <div class="form-group password-container">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" required />
+          <button type="button" id="togglePassword">Hiện</button>
+        </div>
+        <div id="error" class="error-message hidden"></div>
+        <button type="submit" id="loginButton">Đăng Nhập</button>
+      </form>
+      <div class="demo-account">
+        <strong>Tài khoản demo:</strong><br />
+        Tên đăng nhập: admin<br />
+        Mật khẩu: 123456
+      </div>
+      <p class="register-link">
+        Chưa có tài khoản? <a href="register.html">Đăng ký</a>
+      </p>
+    </div>
+
+    <!-- Swiper JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="dangnhap.js"></script>
+  </body>
+</html>

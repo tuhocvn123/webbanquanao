@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="trangchu.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="quangcao-ben-trai">
+      <a href="#">
+        <img
+          src="https://th.bing.com/th/id/OIP.qBncS0bgujWW_2WD6UvArAHaNL?w=187&h=333&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Quảng cáo sản phẩm hot"
+        />
+      </a>
+    </div>
+
+    <header>
+      <div class="logo">THOITRANGSHOP</div>
+      <nav>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Tìm kiếm sản phẩm..."
+        />
+        <button onclick="searchProducts()">🔍</button>
+        <a href="../Dangnhap/dangnhap.html">Đăng nhập</a>
+        <a href="../Giohang/giohang.html"> Giỏ hàng (<span id="cartCount">0</span>)</a>
+        <a href="../Lichsumua/lichsu.html"> Lịch sử mua</a>
+        <a href="../Quangcao/quangcao.html"> Thông tin vận chuyển và Đánh giá</a>
+      </nav>
+    </header>
+
+    <div class="ad-slide active">
+      <img
+        src="https://roselinlin.com/image/catalog/activity/RupPfUjcki1715765617.webp"
+        alt="Khuyến mãi mùa hè"
+      />
+    </div>
+    <div class="ad-slide">
+      <img
+        src="https://img3.thuthuatphanmem.vn/uploads/2019/10/14/banner-thoi-trang-giam-gia_113856960.jpg"
+        alt="Fashion Sale 30%"
+      />
+    </div>
+    <div class="ad-slide">
+      <img
+        src="https://img.freepik.com/premium-vector/sale-banner-promotion-template-premium_106244-276.jpg"
+        alt="Giảm giá đặc biệt"
+      />
+    </div>
+    <title>Biểu tượng tư vấn hỗ trợ</title>
+    <!-- Biểu tượng cố định hỗ trợ -->
+    <div class="support-icon" onclick="toggleSupportBox()">📞</div>
+
+    <!-- Hộp chat hỗ trợ cố định -->
+    <div class="support-box" id="supportBox">
+      <div class="support-header">🎧 Hỗ trợ khách hàng</div>
+      <div class="support-body" id="supportBody">
+        <div class="message bot">Xin chào! Bạn cần tư vấn gì ạ?</div>
+      </div>
+      <div class="support-footer">
+        <input
+          type="text"
+          id="supportInput"
+          placeholder="Nhập tin nhắn..."
+          onkeydown="handleSupportKey(event)"
+        />
+        <button onclick="sendSupportMessage()">Gửi</button>
+      </div>
+    </div>
+
+    <section class="category">
+      <button onclick="filterProducts('all')">Tất cả</button>
+      <button onclick="filterProducts('ao')">Áo</button>
+      <button onclick="filterProducts('quan')">Quần</button>
+      <button onclick="filterProducts('giay')">Giày</button>
+      <button onclick="filterProducts('phukien')">Phụ kiện</button>
+    </section>
+    <main class="product-list" id="productList">
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.a-S9aCzbjzcAYUF4Tf-xvAHaHa?w=194&h=194&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Áo thun Unisex"
+        />
+        <h3>Áo thun Unisex</h3>
+        <p>199.000 VNĐ</p>
+        <button onclick="addToCart('Áo thun Unisex', 199000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thun Unisex', 199000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.S2IgH8xdkkEqNMlVWxrywgHaHa?w=188&h=189&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Quần jean slimfit"
+        />
+        <h3>Quần jean slimfit</h3>
+        <p>299.000 VNĐ</p>
+        <button onclick="addToCart('Quần jean slimfit', 299000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần jean slimfit', 299000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="giay">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/499014a7ab5563a3ae323bc7934dc8f6"
+          alt="Giày sneaker"
+        />
+        <h3>Giày sneaker</h3>
+        <p>499.000 VNĐ</p>
+        <button onclick="addToCart('Giày sneaker', 499000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Giày sneaker', 499000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.-N_Y6Dutk1lDbByWAhBO8QHaHa?w=195&h=195&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://img.riokupon.com/upload/images/2022/12/18/3686c73740cb9d8be09af66d31084c99.jpg"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách HERMEC', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách HERMEC', 350000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse2.mm.bing.net/th/id/OIP.C3HcTXmNBzIlAIChOj83zwHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1.5&o=7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.yN52EYBBmOa-mGZkPfal9wHaJ4?w=202&h=269&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th?id=OIF.Pr6bzz1E7%2b7ar95mugPeZw&w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.EX09SVbotPGJRG8aa7qVNAHaHa?w=190&h=191&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.-I3rfn3GZIbSQuA1vGiPTAHaHa?w=192&h=191&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.jVzRhmBPuTVgyW7tXM5yMQHaHa?w=194&h=194&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.UxThhXxcxeEn5EaKc1gLLAHaHa?w=197&h=198&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.45Moroja-YNjzq40CaA5_gHaHa?w=184&h=184&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.zbldfowBdGD4mcVOVi0pqwHaHa?w=169&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.GAh4sTOB9tzfxVO-YOVmTQHaHa?w=217&h=217&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.JA1g97ndedIBCn1NF6rfkQHaHa?w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/sg-11134201-7rfi6-m367qlwb5b349e"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/sg-11134201-7rffw-m94dbb0d4rv942"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse4.mm.bing.net/th/id/OIP.DSw0zemLLVViq370M2RyzgHaJS?pid=ImgDet&w=178&h=223&c=7&dpr=1.5&o=7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse1.mm.bing.net/th/id/OIP.iQljQy08i2PpZ1JJUBEIFQHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1.5&o=7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.QlYPcCRFoakhpPjqbJW3zwHaHa?w=195&h=195&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse4.mm.bing.net/th/id/OIP.yzM91mtp8Tu7jedVfaNAdAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse4.mm.bing.net/th/id/OIP.2Pv0hTG17wwQUmdB42cXkwHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1.5&o=7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse2.mm.bing.net/th/id/OIP.XcjAFUMCvvA7tKuHuDLXBAHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1.5&o=7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.4jNy5bS7F8ZVevQlDZf9gQHaHa?w=184&h=184&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Túi xách thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 350000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.CvXClYEQxUH2DUXz4g42vwHaJl?w=145&h=187&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang nữ', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang nữ', 350000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse3.mm.bing.net/th/id/OIP.hmzROXTzaKD5Xf7fhOJGKgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Túi xách"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang nam', 250000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang nam', 250000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.7gB-7rHywVkTVoW8_AhvuAHaLH?w=141&h=211&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>450.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang nam', 450000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang nam', 450000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://thuthuatnhanh.com/wp-content/uploads/2022/08/ao-thun-in-hinh-theo-yeu-cau.jpg"
+          alt="ao"
+        />
+        <h3>Áo thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang nam', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang nam', 350000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse4.mm.bing.net/th/id/OIP.kbCAifhDc7_6J0ee-NYlGQHaJI?pid=ImgDet&w=178&h=219&c=7&dpr=1.5&o=7&rm=3"
+          alt="Á thời trang"
+        />
+        <h3>Áo thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang nam', 150000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang nam', 150000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://product.hstatic.net/200001016220/product/img_0522_d0be9df470dc413ea703f54b52b98ac4_master.jpg"
+          alt="Quần"
+        />
+        <h3>Quần thời trang</h3>
+        <p>250.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang', 250000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang', 250000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th?id=OIF.lksSnefK203Y2lTi%2fdnInQ&w=215&h=196&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Quần"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>299.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang', 299000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang', 299000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="giay">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://tse1.mm.bing.net/th/id/OIP.Z7h0jrlQzJUog46eDFg6pgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Giày sneakers"
+        />
+        <h3>Giày thể thao</h3>
+        <p>550.000 VNĐ</p>
+        <button onclick="addToCart('Giày thể thao', 550000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Túi xách thời trang', 550000)">
+          Mua ngay
+        </button>
+      </div>
+      <div class="product-card" data-category="giay">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://ae01.alicdn.com/kf/Sc7b305ea06ee40648ce772ea942631297.jpg"
+          alt="Giày"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>950.000 VNĐ</p>
+        <button onclick="addToCart('Giày thể thao ', 950000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Giày thể thao ', 950000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="giay">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIP.75QK1E1eu0m6dVeY3Ly4CgHaHZ?w=189&h=189&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Giày"
+        />
+        <h3>Giày thể thao nữ</h3>
+        <p>750.000 VNĐ</p>
+        <button onclick="addToCart('Giày thể thao nữ', 750000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Giày thể thao nữ', 750000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIF.a4Z5bQfAuVdCIOGOjwY6Yw?w=202&h=152&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Áo"
+        />
+        <h3>Áo phong cách nữ</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Áo phong cách nữ', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo phong cách nữ', 350000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th?id=OIF.qqH%2bAVQW6Nkpxpet0TjmDA&w=197&h=205&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 150000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 150000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIF.d8B2Kv0xqGKtxn6wI1U7EA?w=185&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 350000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://th.bing.com/th/id/OIF.VHUcfskmhyyQRnA293mANQ?w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+          alt="Quần"
+        />
+        <h3>Quần thời trang</h3>
+        <p>250.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang', 250000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang', 250000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m8yk64jyngxa75.webp"
+          alt="Quần"
+        />
+        <h3>Quần thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang', 150000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang', 150000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/sg-11134201-7rauj-mb4uthxsclu844@resize_w900_nl.webp"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 350000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lthnmiwj8c2559@resize_w900_nl.webp"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 150000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 150000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltbue42zi7d056@resize_w900_nl.webp"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>250.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 250000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 250000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="phukien">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-mbqdix87nt5l9b@resize_w900_nl.webp"
+          alt="Phụ kiện"
+        />
+        <h3>Túi xách thời trang</h3>
+        <p>250.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 250000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 250000)">Mua ngay</button>
+      </div>
+      <!-- phần thêm test thử -->
+
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m8yk64jyngxa75.webp"
+          alt="Quần"
+        />
+        <h3>Quần thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang', 150000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang', 150000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m8yk64jyngxa75.webp"
+          alt="Quần"
+        />
+        <h3>Quần thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang', 150000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang', 150000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="quan">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m8yk64jyngxa75.webp"
+          alt="Quần"
+        />
+        <h3>Quần thời trang</h3>
+        <p>150.000 VNĐ</p>
+        <button onclick="addToCart('Quần thời trang', 150000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Quần thời trang', 150000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/sg-11134201-7rauj-mb4uthxsclu844@resize_w900_nl.webp"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 350000)">Mua ngay</button>
+      </div>
+      <div class="product-card" data-category="ao">
+        <span class="wishlist" onclick="toggleFavorite(this)">♡</span>
+        <img
+          src="https://down-vn.img.susercontent.com/file/sg-11134201-7rauj-mb4uthxsclu844@resize_w900_nl.webp"
+          alt="Áo"
+        />
+        <h3>Áo thời trang</h3>
+        <p>350.000 VNĐ</p>
+        <button onclick="addToCart('Áo thời trang', 350000)">
+          Thêm vào giỏ
+        </button>
+        <button onclick="buyNow('Áo thời trang', 350000)">Mua ngay</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-info">
+          <h3>Thông tin liên hệ</h3>
+          <p>📍 Địa chỉ: Nguyễn Văn Cừ, P.Ninh Kiều, TP.Cần Thơ</p>
+          <p>📞 Hotline: 0666666666</p>
+          <p>✉️ Email: bachubao2233@gmail.vn</p>
+        </div>
+        <div class="footer-links">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Chính sách vận chuyển</a></li>
+            <li><a href="#">Đánh giá khách hàng</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Kết nối với chúng tôi</h3>
+          <p>
+            <a href="#">🌐 Facebook</a> | <a href="#">📸 Instagram</a> |
+            <a href="#">🎥 YouTube</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Bản quyền thuộc về Shop Thời Trang. All rights reserved.
+      </div>
+    </footer>
+    <!-- =========   js ========== -->
+    <script src="./trangchu.js"></script>
+  </body>
+</html>

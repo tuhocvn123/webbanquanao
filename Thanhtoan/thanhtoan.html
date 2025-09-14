@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./thanhtoan.html">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header-nav">
+            <div> Thanh toán đơn hàng</div>
+            <div>
+                <a href="../Trangchu/trangchu.html">Trang chủ</a>
+                <a href="../Giohang/giohang.html">Giỏ hàng</a>
+            </div>
+        </div>
+    </header>
+    <div class="checkout-container">
+        <div class="order-summary">
+            <h3>Tóm tắt đơn hàng</h3>
+            <div id="orderItems">
+                <!-- Các sản phẩm sẽ được hiển thị ở đây -->
+            </div>
+        </div>
+    <form id="checkoutForm">
+            <div class="form-section">
+                <h3>Thông tin giao hàng</h3>
+                <label for="fullName">Họ tên người nhận:</label>
+                <input type="text" id="fullName" required>
+                
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" required>
+                
+                <label for="address">Địa chỉ giao hàng:</label>
+                <textarea id="address" required></textarea>
+            </div>
+
+            <div class="form-section">
+                <h3>Phương thức thanh toán</h3>
+                <label for="paymentMethod">Chọn phương thức:</label>
+                <select id="paymentMethod">
+                    <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                    <option value="momo">Ví điện tử (Momo/ZaloPay)</option>
+                    <option value="banking">Chuyển khoản ngân hàng</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label for="note">Ghi chú:</label>
+                <textarea id="note" placeholder="Nhập ghi chú cho đơn hàng (không bắt buộc)"></textarea>
+            </div>
+
+            <button type="submit">Xác nhận thanh toán</button>
+        </form>
+        
+        <div class="success-message" id="successMsg" style="display:none;">
+            <h3>✅ Đơn hàng của bạn đã được ghi nhận!</h3>
+            <p>Cảm ơn bạn đã mua sắm tại cửa hàng. Chúng tôi sẽ liên hệ với bạn sớm nhất.</p>
+            <div>
+                <a href="../Trangchu/trangchu.html">← Quay lại trang chủ</a>
+                <a href="../Giohang/giohang.html">Xem giỏ hàng</a>
+            </div>
+        </div>
+    </div>
+
+     <footer>© 2025 Bán hàng trên ứng dụng - CNTT</footer>
+
+
+    <!-- ---- js ---- -->
+     <script src="./thanhtoan.js"></script>
+</body>
+</html>

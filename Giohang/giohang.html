@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./giohang.css">
+    <title>Giỏ Hàng</title>
+</head>
+<body>
+    <header>
+        <div class="header-nav">
+            <div>🛒 Giỏ hàng của bạn</div>
+            <div>
+                <a href="../Trangchu/trangchu.html">Trang chủ</a>
+                <a href="../Dangnhap/dangnhap.html">Đăng nhập</a>
+            </div>
+        </div>
+    </header>
+    
+    <h2>Danh sách sản phẩm</h2>
+    <div class="cart-container">
+        <div id="cartItems">
+            <!-- Các sản phẩm sẽ được thêm bằng JavaScript -->
+        </div>
+        
+        <div id="emptyCart" class="empty-cart" style="display: none;">
+            <h3>Giỏ hàng trống</h3>
+            <p>Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
+            <a href="index.html">← Quay lại mua sắm</a>
+        </div>
+        
+        <div class="cart-total" id="cartTotal">
+            Tổng cộng: <span id="totalAmount">0 VNĐ</span>
+        </div>
+        
+        <a href="checkout.html" class="checkout-btn" id="checkoutBtn">Thanh toán</a>
+    </div>
+    
+    <footer>© 2025 Bán hàng trên ứng dụng - Nhóm 3</footer>
+
+    <!-- --- js --- -->
+     <script src="./giohang.js"></script>
+</body>
+</html>
